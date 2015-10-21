@@ -1,0 +1,17 @@
+- debug: var=tmux
+
+- name: Installs tmux
+  apt: pkg=tmux state=latest
+
+- name: Adds tmux pairing scripts
+  copy: 
+    src: "../files/{{ item }}" 
+    dest: /usr/local/bin/
+    owner: root
+    group: root
+    mode: 0777
+  with_items:
+    - tmux-attach
+    - tmux-start
+    - tmux-stop
+

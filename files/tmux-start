@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Create tmux shared session dir if needed
+[ -d /var/tmux/ ] || sudo mkdir -m 777 /var/tmux
+
+tmux -S /var/tmux/pairing new-session -d -s pairing -n vim 'bash'
+tmux -S /var/tmux/pairing new-window -t pairing -n bash  'bash'
+tmux -S /var/tmux/pairing select-window -t pairing:0
+tmux -S /var/tmux/pairing -2 attach -t pairing
