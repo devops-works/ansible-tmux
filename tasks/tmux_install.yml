@@ -4,8 +4,8 @@
   apt: pkg=tmux state=latest
 
 - name: Adds tmux pairing scripts
-  copy: 
-    src: "../files/{{ item }}" 
+  copy:
+    src: "../files/{{ item }}"
     dest: /usr/local/bin/
     owner: root
     group: root

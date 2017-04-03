@@ -5,13 +5,13 @@
   changed_when: false
   always_run: yes
 
-- debug: 
+- debug:
     msg: "Detected tmux version {{ __tmux_version }}"
   when: __tmux_version is defined and __tmux_version.stdout is defined
 
 - name: Adds .tmux.conf for all accounts for detected version
-  template: 
-    src: '../templates/tmux.conf.j2' 
+  template:
+    src: ../templates/tmux.conf.j2
     dest: "~{{ item }}/.tmux.conf"
     owner: "{{ item }}"
     group: "{{ item }}"
