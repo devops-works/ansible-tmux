@@ -9,7 +9,7 @@
     dest: /usr/local/bin/
     owner: root
     group: root
-    mode: 0777
+    mode: 0755
   with_items:
     - tmux-attach
     - tmux-start
