@@ -3,9 +3,10 @@
   shell: tmux -V > /dev/null 2>&1 && tmux -V | cut -f2 -d ' ' || echo 0.0
   register: __tmux_version
   changed_when: false
-  always_run: yes
+  check_mode: no
 
-- debug:
+- name: Show tmux version
+  debug:
     msg: "Detected tmux version {{ __tmux_version }}"
   when: __tmux_version is defined and __tmux_version.stdout is defined
 
@@ -15,6 +16,6 @@
     dest: "~{{ item }}/.tmux.conf"
     owner: "{{ item }}"
     group: "{{ item }}"
-  with_items: "[ {{ tmux_users }} ]"
+  with_items: "{{ tmux_users }}"
   when: __tmux_version is defined and __tmux_version.stdout is defined
 

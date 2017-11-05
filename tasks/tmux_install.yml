@@ -1,7 +1,7 @@
-- debug: var=tmux
-
 - name: Installs tmux
-  apt: pkg=tmux state=latest
+  apt:
+    pkg: tmux
+    state: present
 
 - name: Adds tmux pairing scripts
   copy:
