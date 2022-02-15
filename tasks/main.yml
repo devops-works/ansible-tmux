@@ -1,6 +1,6 @@
-- include: tmux_install.yml
+- include_tasks: tmux_install.yml
   tags: ["tmux","tmux:install"]
 
-- include: tmux_configure.yml
+- include_tasks: tmux_configure.yml
   tags: ["tmux","tmux:configure"]
 
